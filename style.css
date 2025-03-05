@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('img/masjid.jpg') no-repeat center center/cover;
+    color: white;
+    margin: 0;
+}
+
+.container {
+    width: 90%; /* Memperlebar container */
+    max-width: 1200px; /* Maksimal lebar agar tetap proporsional */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px auto;
+}
+
+header .logo {
+    width: 100px;
+}
+
+.jam-digital {
+    font-size: 3em; /* Perbesar jam digital */
+    margin: 20px 0;
+}
+
+/* Gaya untuk jam analog */
+.jam-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+
+}
+
+.jam-box {
+    text-align: center;
+    /* flex: 1;
+    min-width: 180px; */
+}
+
+.jam-analog {
+    width: 150px; /* Perbesar jam analog */
+    height: 150px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jarum {
+    position: absolute;
+    bottom: 50%;
+    background: black;
+    transform-origin: bottom;
+    /* transition: transform 0.5s ease-in-out; */
+}
+
+.jarum.jam {
+    background: black;
+    width: 6px;
+    height: 40px; /* Sesuaikan panjang */
+    /* left: 72px;
+    top: 35px; */
+}
+
+.jarum.menit {
+    background: black;
+    width: 4px;
+    height: 55px; /* Sesuaikan panjang */
+    /* left: 73px;
+    top: 20px; */
+}
+
+.tengah {
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 70px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .jam-container {
+        flex-direction: column;
+        align-items: center;
+        gap:20px;
+    }
+    
+    /* .jam-box {
+        min-width: 100px;
+    } */
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .jam-sekarang {
+        font-size: 80px;
+    }
+
+    .jam-analog {
+        width: 180px;
+        height: 180px;
+    }
+
+    .jarum.jam {
+        height: 50px;
+        left: 87px;
+        top: 40px;
+    }
+
+    .jarum.menit {
+        height: 65px;
+        left: 88px;
+        top: 25px;
+    }
+
+    .tengah {
+        top: 85px;
+        left: 85px;
+    }
+}
