@@ -37,8 +37,8 @@ function startCountdown(duration) {
         let seconds = remainingTime % 60;
         document.getElementById("jam").textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 
-        if (remainingTime <= 5) {
-            playBeep(); // Bunyi beep pada 5 detik terakhir
+        if (remainingTime <= 3) {
+            playBeep(); // Bunyi beep pada 3 detik terakhir
         }
 
         if (remainingTime === 0) {
