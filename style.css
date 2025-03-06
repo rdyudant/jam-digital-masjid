@@ -2,16 +2,16 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background: url('img/masjid.jpg') no-repeat center center/cover;
-    color: white;
+    color: yellow;
     margin: 0;
 }
 
 .container {
     width: 90%; /* Memperlebar container */
     max-width: 1200px; /* Maksimal lebar agar tetap proporsional */
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.75);
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 40px;
     margin: 30px auto;
 }
 
@@ -19,28 +19,34 @@ header .logo {
     width: 100px;
 }
 
-.jam-digital {
-    font-size: 3em; /* Perbesar jam digital */
-    margin: 20px 0;
+#jam {
+    font-size: 2.4em;
+    transition: color 0.5s ease-in-out;
 }
 
-/* Gaya untuk jam analog */
+.jam-digital {
+    font-size: 2.4em;
+    /* margin: 20px 0; */
+}
+
 .jam-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 60px;
+    gap: 30px;
 
 }
 
 .jam-box {
     text-align: center;
-    /* flex: 1;
-    min-width: 180px; */
+    /* background: rgba(255, 255, 255, 0.25); */
+    padding: 0 25px;
+    /* border-radius: 30px; */
+    min-width: 150px;
 }
 
-.jam-analog {
-    width: 150px; /* Perbesar jam analog */
+/* .jam-analog {
+    width: 150px;
     height: 150px;
     background: white;
     border-radius: 50%;
@@ -56,23 +62,18 @@ header .logo {
     bottom: 50%;
     background: black;
     transform-origin: bottom;
-    /* transition: transform 0.5s ease-in-out; */
 }
 
 .jarum.jam {
     background: black;
     width: 6px;
-    height: 40px; /* Sesuaikan panjang */
-    /* left: 72px;
-    top: 35px; */
+    height: 40px;
 }
 
 .jarum.menit {
     background: black;
     width: 4px;
-    height: 55px; /* Sesuaikan panjang */
-    /* left: 73px;
-    top: 20px; */
+    height: 55px;
 }
 
 .tengah {
@@ -83,7 +84,7 @@ header .logo {
     position: absolute;
     top: 70px;
     left: 70px;
-}
+} */
 
 /* Responsiveness */
 @media (max-width: 768px) {
@@ -103,11 +104,14 @@ header .logo {
         max-width: 1400px;
     }
 
-    .jam-sekarang {
-        font-size: 80px;
+    .jam {
+        font-size: 90px;
     }
 
-    .jam-analog {
+    .jam-sholat {
+        font-size: 60px;
+    }
+    /* .jam-analog {
         width: 180px;
         height: 180px;
     }
@@ -127,5 +131,5 @@ header .logo {
     .tengah {
         top: 85px;
         left: 85px;
-    }
+    } */
 }
