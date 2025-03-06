@@ -1,3 +1,12 @@
+function adjustFullscreen() {
+    document.body.style.width = window.innerWidth + "px";
+    document.body.style.height = window.innerHeight + "px";
+}
+
+window.addEventListener("resize", adjustFullscreen);
+adjustFullscreen(); // Jalankan saat pertama kali
+
+
 document.addEventListener("DOMContentLoaded", function () {
     updateClock();
     setInterval(updateClock, 1000);
@@ -10,7 +19,7 @@ function updateClock() {
     const now = new Date();
     const currentTime = now.toTimeString().slice(0, 5); // Format HH:MM
 
-    document.getElementById("jam").textContent = now.toLocaleTimeString("id-ID");
+    document.getElementById("jam").textContent = now.toLocaleTimeString("id-ID").replace(/\./g, ":");;
     document.getElementById("tanggal").textContent = now.toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
     
     const prayerTimes = [
@@ -57,29 +66,27 @@ function playBeep() {
 }
 
 function fetchPrayerTimes() {
-    const city = "Purbalingga";
-    const country = "ID";
-    const url = `https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=2`;
+    // const province = "DKI";  // Ganti sesuai provinsi
+    const city = "1420";  // Ganti sesuai id kota (1420 - KAB. PURBALINGGA)
+    const today = new Date().toISOString().split("T")[0]; // Format YYYY-MM-DD
+    const url = `https://api.myquran.com/v2/sholat/jadwal//${city}/${today}`;
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const times = data.data.timings;
-            // setClock("subuh", times.Fajr);
-            // setClock("dzuhur", times.Dhuhr);
-            // setClock("ashar", times.Asr);
-            // setClock("maghrib", times.Maghrib);
-            // setClock("isya", times.Isha);
-            document.getElementById("subuh").textContent = times.Fajr;
-            document.getElementById("dzuhur").textContent = times.Dhuhr;
-            document.getElementById("ashar").textContent = times.Asr;
-            document.getElementById("maghrib").textContent = times.Maghrib;
-            document.getElementById("isya").textContent = times.Isha;
+            if (data.status) {
+                const times = data.data.jadwal;
+                document.getElementById("subuh").textContent = times.subuh;
+                document.getElementById("dzuhur").textContent = times.dzuhur;
+                document.getElementById("ashar").textContent = times.ashar;
+                document.getElementById("maghrib").textContent = times.maghrib;
+                document.getElementById("isya").textContent = times.isya;
+            } else {
+                console.error("Gagal mengambil data:", data.message);
+            }
         })
-        .catch(error => console.error("Gagal mengambil data: ", error));
+        .catch(error => console.error("Gagal mengambil data:", error));
 }
-
-
 
 // function setClock(id, time) {
 //     const [hour, minute] = time.split(":").map(Number);

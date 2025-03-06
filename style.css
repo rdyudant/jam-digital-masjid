@@ -1,9 +1,19 @@
-body {
+body, html {
     font-family: Arial, sans-serif;
     text-align: center;
     background: url('img/masjid.jpg') no-repeat center center/cover;
     color: yellow;
     margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    /* overflow: hidden; Hilangkan scroll */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
 }
 
 .container {
@@ -100,6 +110,14 @@ header .logo {
 }
 
 @media (min-width: 1200px) {
+    .masjid {
+        font-size: 50px;
+    }
+
+    .tanggal {
+        font-size: 30px;
+    }
+
     .container {
         max-width: 1400px;
     }
